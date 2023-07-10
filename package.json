@@ -1,0 +1,24 @@
+{
+  "name": "oot_landing_page_v2",
+  "version": "0.1.0",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "gsap": "^2.1.2",
+    "simplex-noise": "^2.4.0",
+    "vue": "^2.6.6",
+    "vue-cli": "^2.9.6",
+    "vue-particles": "^1.0.9",
+    "vue-router": "^3.0.1",
+    "vuetify": "^1.5.6",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.5.0",
+    "@vue/cli-service": "^3.5.3",
+    "babel-eslint": "^10.0.1"
+  }
+}
