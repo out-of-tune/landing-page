@@ -1,4 +1,7 @@
-# oot_landing_page_v2
+# oot landing page
+
+This is the landing page for the ou-of-tune project.
+[Out-of-tune](https://github.com/out-of-tune/OOT) is a music discovery platform.
 
 ## Project setup
 ```
