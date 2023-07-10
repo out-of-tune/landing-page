@@ -9,6 +9,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  CACHE_NAME: landing-page
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -36,7 +39,9 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/build
-          key: ${{ runner.os }}-build
+          key: ${{ runner.os }}-build-$CACHE_NAME-${{ hashFiles('./') }}
+          restore-keys: |
+            ${{ runner.os }}-build-$CACHE_NAME
   deploy:
     needs: build
     # environment:
@@ -47,8 +52,9 @@ jobs:
       - name: Get cache
         uses: actions/cache@v2
         with:
+          fail-on-cache-miss: true
           path: '.'
-          key: ${{ runner.os }}-build
+          key: ${{ runner.os }}-build-$CACHE_NAME
       # - name: Setup Pages
       #   uses: actions/configure-pages@v3
       # - name: Upload artifact
