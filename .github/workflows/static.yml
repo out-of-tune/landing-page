@@ -36,10 +36,10 @@ jobs:
       - run: npm install
       - run: npm run build
       - name: Cache built landing page
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/build
-          key: ${{ runner.os }}-build-$CACHE_NAME-${{ hashFiles('./') }}
+          key: ${{ runner.os }}-build-${{ env.CACHE_NAME }}-${{ hashFiles('./') }}
           restore-keys: |
             ${{ runner.os }}-build-$CACHE_NAME
   deploy:
@@ -50,11 +50,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           fail-on-cache-miss: true
           path: '.'
-          key: ${{ runner.os }}-build-$CACHE_NAME
+          key: ${{ runner.os }}-build-${{ env.CACHE_NAME }}
       # - name: Setup Pages
       #   uses: actions/configure-pages@v3
       # - name: Upload artifact
