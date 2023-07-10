@@ -30,8 +30,8 @@ jobs:
         uses: actions/setup-node@v3.7.0
         with:
           node-vesion: 16
-      - name: npm install
-      - name: npm run build
+      - run: npm install
+      - run: npm run build
       - name: Cache built landing page
         uses: actions/cache@v2
         with:
