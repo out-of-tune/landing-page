@@ -14,7 +14,6 @@
       <path ref="triangle04" d=" M 956 1275 L 590 1275 L 772.999 960 L 956 1275 Z " fill="rgb(29,205,218)"/>
     </g>
 </svg>
-
 </template>
 
 <script>
@@ -28,9 +27,6 @@ function CalcNoiseValue(a, diameter){
   let xoff = Map(Math.cos(a), -1, 1, 0, diameter)
   let yoff = Map(Math.sin(a), -1, 1, 0, diameter)
 
-  // console.log("angle: " + a)
-  // console.log("xoff: "+xoff+"; yoff: "+yoff)
-
   let r = simplex.noise2D(xoff,yoff)
   let x = Map(r, -1, 1, -200, 200)
   return x
@@ -41,12 +37,12 @@ const simplex = new SimplexNoise('outoftune')
 export default {
   data() {
     return {
-
+      running: false,
+      mtl: undefined
     }
   },
   methods: {
-    startAnim() {
-      // const timeline = new TimelineLite()
+    createAnim() {
       let tl1 = new TimelineLite()
       tl1 = this.CreateLoop(this.$refs.circle01, tl1, 5, 1, 0.3)
 
@@ -78,9 +74,8 @@ export default {
       tl10 = this.CreateLoop(this.$refs.hexagon, tl10, 5, 0.5, 0.1)
 
 
-      let mtl = new TimelineLite({onComplete: function(){
-          mtl.restart()
-        }})
+      let mtl = new TimelineLite()
+
       mtl.add(tl1, 0)
       mtl.add(tl2, 0)
       mtl.add(tl3, 0)
@@ -91,8 +86,16 @@ export default {
       mtl.add(tl8, 0)
       mtl.add(tl9, 0)
       mtl.add(tl10, 0)
+
+      this.mtl = mtl
+    },
+    startAnim() {
+      if(this.running) return
+      this.running = true
+      this.createAnim()
+      this.mtl.eventCallback("onComplete", () => this.running=false)
       
-      mtl.play()
+      this.mtl.play()
     },
     CreateLoop: function (el, tl, iterations, diameter, duration){
       for (let i = 0; i <= iterations; i++){
@@ -103,15 +106,11 @@ export default {
             x: value2d - offset
           }
         )
-        // console.log(value2d + offset)
         tl.add(tween)
       }
       return tl
     }
   },
-   mounted() {
-       this.startAnim()
-   },
    beforeDestroy() {
      TweenMax.killAll()
    }

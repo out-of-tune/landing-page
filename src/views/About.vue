@@ -7,14 +7,14 @@
         <h2 class="sub-headline">Find Music - The New Way</h2>
       </div>
       <TextScramble id="text-scramble"/>
-      <div id="anim-wrapper1">
-        <GeometryAnimation id="anim1" class="anim"/>
+      <div id="anim-wrapper1" v-on:mouseover="$refs.ga1.startAnim()">
+        <GeometryAnimation ref="ga1" id="anim1" class="anim"/>
       </div>
       <div id="text1" class="glass">
         <h2>out-of-tune</h2> 
         <p class="blueglass1">
           is a web application, where you can discover all kind of music, 
-          even some you never heard of before. 
+          even some you have never heard of before. 
           You can start off by searching for your favourite artists, 
           and then start exploring from that point. 
           You can broaden your taste in music or find 
