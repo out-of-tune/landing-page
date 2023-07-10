@@ -4,7 +4,7 @@ name: Build and deploy landing page to GitHub Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: ["aem_fix_deploy_github_action"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,16 +25,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.7.0
         with:
-          node-vesion: 16.x
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Install
-        run: npm install
-      - name: build
-        run: npm run build
+          node-vesion: 16
+      - name: npm install
+      - name: npm run build
       - name: Cache built landing page
         uses: actions/cache@v2
         with:
