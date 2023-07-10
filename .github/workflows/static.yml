@@ -38,10 +38,10 @@ jobs:
       - name: Cache built landing page
         uses: actions/cache@v3
         with:
-          path: ~/build
+          path: ./dist
           key: ${{ runner.os }}-build-${{ env.CACHE_NAME }}-${{ hashFiles('./') }}
           restore-keys: |
-            ${{ runner.os }}-build-$CACHE_NAME
+            ${{ runner.os }}-build-${{ env.CACHE_NAME }}
   deploy:
     needs: build
     # environment:
