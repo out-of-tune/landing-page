@@ -23,9 +23,6 @@
         <path class="line bottom" d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20" />
       </svg>
 
-
-      <!-- <v-img src="assets/oot_logo.svg"></v-img> -->
-      <!-- <v-btn class="btn" to="/" outline color="#d8ae91">Home</v-btn> -->
       <v-btn class="top-btn" to="/about" outline color="#d8ae91">About</v-btn>
       <v-btn class="top-btn" to="/project" outline color="#d8ae91">Project</v-btn>
       <v-btn class="top-btn" to="/news" outline color="#d8ae91">News</v-btn>
