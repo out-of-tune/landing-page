@@ -4,14 +4,18 @@
       <ul>
         <li>
           <router-link to="/about">
-            <button class="nav-btn">About</button>
+            <button @click="toggleNav" class="nav-btn">About</button>
           </router-link>
         </li>
         <li>
-          <button class="nav-btn" to="/project">Project</button>
+          <router-link to="/project">
+            <button @click="toggleNav"  class="nav-btn">Project</button>
+          </router-link>
         </li>
         <li>
-          <button class="nav-btn" to="/news">News</button>
+          <router-link to="/news">
+            <button @click="toggleNav" class="nav-btn">News</button>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -67,8 +71,12 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
 @import url('https://fonts.googleapis.com/css?family=Monoton');
 @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:600|Lora|Playfair+Display+SC|Rozha+One');
-
 /* fonts */
+
+body {
+  padding: 0;
+  margin: 0;
+}
 
 #app {
   font-family: "Lucida Console", Monaco, monospace;
@@ -199,6 +207,12 @@ export default {
   z-index: 100;
   background: rgba(30, 30, 30, 0.9);
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 #nav-drawer ul {
@@ -207,11 +221,8 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
   gap: 1rem;
-}
-
-body {
-  overflow: hidden;
 }
 
 ul {
@@ -227,4 +238,18 @@ button {
   background-color: rgba(0, 0, 0, 0);
   color: #d8ae91;
   cursor: pointer;
-}</style>
+  border: 1px solid;
+  border-color: #fff;
+  padding: 0.5rem;
+}
+
+button:hover {
+  background-color: rgba(50, 50, 50, 0.9);
+  color: #da6a1d;
+  border-color: #da6a1d;
+}
+
+button:active {
+  background-color: rgba(100, 100, 100, 1);
+}
+</style>
