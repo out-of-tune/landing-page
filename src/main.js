@@ -1,17 +1,11 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
-import Vuetify from 'vuetify'
-import VueParticles from 'vue-particles'
-import 'vuetify/dist/vuetify.min.css' 
+import Particles from 'particles.vue3'
 
-Vue.config.productionTip = false
-Vue.use(Vuetify)
-Vue.use(VueParticles)
+const app = createApp(App)
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+app.use(router)
+app.use(Particles)
+
+app.mount('#app')
