@@ -10,6 +10,7 @@
     "gsap": "^2.1.2",
     "particles.vue3": "^2.11.0",
     "simplex-noise": "^2.4.0",
+    "tsparticles-slim": "^2.11.0",
     "vue": "^3",
     "vue-router": "^4"
   },
