@@ -15,14 +15,13 @@
         </router-link>
       </div>
     </div>
-    <!-- <vue-particles id="tsparticles" :particlesInit="particlesInit" :particlesLoaded="particlesLoaded" /> -->
     <vue-particles id="tsparticles" :particlesInit="particlesInit" :particlesLoaded="particlesLoaded" :options="{
       background: {
         color: {
           value: '#1e1e1e'
         }
       },
-      fpsLimit: 120,
+      fpsLimit: 60,
       interactivity: {
         events: {
           onClick: {
@@ -37,7 +36,7 @@
         },
         modes: {
           bubble: {
-            distance: 400,
+            distance: 150,
             duration: 2,
             opacity: 0.8,
             size: 40
@@ -53,16 +52,10 @@
       },
       particles: {
         color: {
-          value: '#ffffff'
+          value: '#dedede'
         },
         links: {
-          color: '#ffffff',
-          distance: 150,
-          enable: true,
-          opacity: 0.5,
-          width: 1
-        },
-        collisions: {
+          color: '#dedede',
           enable: true
         },
         move: {
@@ -72,7 +65,7 @@
             default: 'bounce'
           },
           random: false,
-          speed: 6,
+          speed: 1,
           straight: false
         },
         number: {
@@ -86,10 +79,10 @@
           value: 0.5
         },
         shape: {
-          type: 'circle'
+          type: 'square'
         },
         size: {
-          value: { min: 1, max: 5 },
+          value: { min: 4, max: 10 },
         }
       },
       detectRetina: true
@@ -99,7 +92,7 @@
 </template>
 
 <script>
-import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
+import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 
 
 import HeaderAnimation from '@/components/HeaderAnimation.vue'
@@ -112,8 +105,7 @@ export default {
   methods: {
 
     particlesInit: async engine => {
-      //await loadFull(engine);
-      await loadSlim(engine);
+      await loadFull(engine);
     },
 
     particlesLoaded: async container => {
