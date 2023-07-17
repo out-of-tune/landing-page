@@ -7,7 +7,7 @@
         <div id="text">
           <div class="content">
             <h1>Find Music – The New Way</h1>
-            <v-btn outline color="#d8ae91" to="/about">More about out-of-tune</v-btn>
+            <button outline color="#d8ae91" to="/about">More about out-of-tune</button>
           </div>
         </div>
         <div id="particles">
